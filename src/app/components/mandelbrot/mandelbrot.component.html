@@ -1,0 +1,19 @@
+<form [formGroup]= "configForm" (ngSubmit)="onSubmit()">
+    <mat-form-field appearance="fill">
+        <mat-label>Select</mat-label>
+        <mat-select (valueChange)="do($event)">
+            <mat-option *ngFor="let sight of options" [value]="sight">{{sight.title}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    <mat-form-field appearance="fill">
+        <mat-label for="Depth">depth</mat-label> <input matInput type="number" formControlName="depth">
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+        <mat-label for="posX">posX</mat-label> <input matInput type="number" formControlName="posX">
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+        <mat-label for="posY">posY</mat-label> <input matInput type="number" formControlName="posY">
+    </mat-form-field>
+    
+    <p><button mat-raised-button color="primary" type="submit" [disabled]="!configForm.valid">Draw</button></p>
+</form>

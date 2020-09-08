@@ -1,0 +1,8 @@
+<div class="container">
+    <div class="fractal-box">
+      <fractal-view [config]="config"></fractal-view>
+    </div>
+    <div class="config-box">
+      <mandelbrot (update) = "updateMandelbrotConfig($event)"></mandelbrot>
+    </div>
+</div> 
