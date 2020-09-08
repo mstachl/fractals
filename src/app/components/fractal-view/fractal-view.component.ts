@@ -1,4 +1,4 @@
-import { Component, ViewChild, ElementRef, OnInit, Input } from '@angular/core';
+import { Component, ViewChild, ElementRef, OnInit, Input, AfterViewChecked, AfterViewInit } from '@angular/core';
 import { CONTEXT_NAME } from '@angular/compiler/src/render3/view/util';
 
 @Component({
@@ -6,16 +6,16 @@ import { CONTEXT_NAME } from '@angular/compiler/src/render3/view/util';
   templateUrl: './fractal-view.component.html',
   styles: ['canvas { border-style: solid }']
 })
-export class FractalViewComponent implements OnInit {
+export class FractalViewComponent implements OnInit, AfterViewInit {
   @ViewChild('canvas', { static: true })
   canvas: ElementRef<HTMLCanvasElement>;  
 
   maxIter = 500;
 
-  height = 500;
+  height = 450;
 
   
-  width = 500;
+  width = this.height;
 
   private _config;
 
@@ -34,6 +34,11 @@ export class FractalViewComponent implements OnInit {
 
   ngOnInit(): void {
     this.ctx = this.canvas.nativeElement.getContext('2d');
+    console.log(this.canvas.nativeElement.height);
+  }
+
+  ngAfterViewInit(): void {
+    this.animate();
   }
   
   animate(): void {

@@ -4,7 +4,6 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { FractalViewComponent } from './components/fractal-view/fractal-view.component';
 import { MandelbrotComponent } from './components/mandelbrot/mandelbrot.component';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FractalControllerComponent } from './components/fractal-controller/fractal-controller.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -13,27 +12,44 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule, MatInput } from '@angular/material/input';
 import {MatSelectModule} from '@angular/material/select';
 import {MatButtonModule} from '@angular/material/button';
+import { HeaderComponent } from './components/header/header.component';
+import { NavComponent } from './components/nav/nav.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { MainComponent } from './components/main/main.component';
+import { ExamplesComponent } from './components/examples/examples.component';
+import { RouterModule, Routes } from '@angular/router'
+
+const routes: Routes = [{ path: '', pathMatch: 'full', redirectTo: 'home' },
+{ path: 'home', component: MainComponent },
+{ path: 'examples', component: ExamplesComponent }]  
 
 @NgModule({
   declarations: [
     AppComponent,
     FractalViewComponent,
     MandelbrotComponent,
-    FractalControllerComponent
+    FractalControllerComponent,
+    HeaderComponent,
+    NavComponent,
+    FooterComponent,
+    MainComponent,
+    ExamplesComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
-    NgbModule,
     BrowserAnimationsModule,
     MatOptionModule,
     MatFormFieldModule,
     MatInputModule,
     MatSelectModule,
-    MatButtonModule
+    MatButtonModule,
+    RouterModule.forRoot(routes)
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+

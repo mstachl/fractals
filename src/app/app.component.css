@@ -1,36 +1,64 @@
-body {
-    grid-template-areas: 
-        "header"
-        "content";
-    grid-template-rows: auto;
+* {
+    box-sizing: border-box;
+  }
+  
+  body {
+      margin: 0;
+      padding: 0;
+      text-align: center;
+      font-family: sans-serif;
+  }
+  
+  .container {
+    display:flex;
+    flex-flow:row wrap;
+  }
+  
+  app-header, 
+  app-nav, 
+  app-main, 
+  app-aside, 
+  app-footer, 
+  app-examples {
+    padding: 0px 20px;
+    margin:0px;
+  }
+  
+  app-header {
+    order:1;
+    height:50px;
+    flex:0 1 100%;
+    background: #f1b5b5;
+  }
+  
+  app-nav {
+    order:2;
+    flex: 0 1 100%;
+    background: #f1b5b5;
+  }
+
+ main  {
+    order:3;
+    flex: 0 1 100%;
+    min-height: 500px;
+    background: rgb(211, 216, 215); 
+  }
+  
+  
+  app-footer {
+    order:4;
+    height:20px; 
+    flex:0 1 100%;
+    background: rgb(119, 120, 121);
+  }
+
+  @media (max-width: 768px) {
+    app-header, 
+    app-nav, 
+    app-main, 
+    app-aside, 
+    app-footer {
+      flex: unset;
+      width: 100%;
     }
-
-.title {
-    font: 2em sans-serif;
-    font-weight: bold;
-
-    color: black;
-    font-size: 25px;
-
-}
-
-header {
-    grid-area: header;
-
-    height: 60px;
-    background: #fafafb;
-
-
-}
-
-#content {
-    grid-area: content;
-    background: white;
-}
-
-#nav {
-    font: 2em sans-serif;
-    font-weight: bold;
-    align-self: center;
-    margin: auto;  
-}
+  }
