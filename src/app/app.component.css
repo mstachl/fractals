@@ -1,32 +1,5 @@
-body {
-    grid-template-areas: 
-        "header"
-        "content";
-    grid-template-rows: auto;
-    }
-
-.title {
-    font: 2em sans-serif;
-    font-weight: bold;
-
-    color: black;
-    font-size: 25px;
-
-}
-
-header {
-    grid-area: header;
-
-    height: 60px;
-    background: #fafafb;
 
 
-}
-
-#content {
-    grid-area: content;
-    background: white;
-}
 
 #nav {
     font: 2em sans-serif;
