@@ -1,4 +1,4 @@
-import { Component, ViewChild, ElementRef, OnInit, Input } from '@angular/core';
+import { Component, ViewChild, ElementRef, OnInit, Input, AfterViewInit } from '@angular/core';
 import { CONTEXT_NAME } from '@angular/compiler/src/render3/view/util';
 
 @Component({
@@ -6,7 +6,7 @@ import { CONTEXT_NAME } from '@angular/compiler/src/render3/view/util';
   templateUrl: './fractal-view.component.html',
   styles: ['canvas { border-style: solid }']
 })
-export class FractalViewComponent implements OnInit {
+export class FractalViewComponent implements OnInit, AfterViewInit {
   @ViewChild('canvas', { static: true })
   canvas: ElementRef<HTMLCanvasElement>;  
 
@@ -21,6 +21,8 @@ export class FractalViewComponent implements OnInit {
 
   private ctx: CanvasRenderingContext2D;
 
+  private canvasRef: HTMLCanvasElement;
+
   private colorMap = {
     0: 'black',
     10: ''
@@ -33,7 +35,14 @@ export class FractalViewComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.canvasRef = this.canvas.nativeElement;
+    console.log(this.canvasRef.height)
+    //this.computeAndSetCanvasHeight();
     this.ctx = this.canvas.nativeElement.getContext('2d');
+  }
+
+  ngAfterViewInit(): void {
+    this.animate();
   }
   
   animate(): void {
@@ -86,7 +95,12 @@ return { inSet: true}; // Not in the set
 }
 
 
-
+private computeAndSetCanvasHeight() {
+  this.canvasRef.height = this.canvasRef.width;
+  console.log(this.canvas.nativeElement.height)
+  this.height=this.canvasRef.offsetHeight;
+  this.width = this.canvasRef.offsetWidth;
+}
 
 
 }

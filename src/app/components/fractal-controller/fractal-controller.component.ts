@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'fractal-controller',
@@ -13,10 +14,11 @@ export class FractalControllerComponent implements OnInit {
     posY: 0
   }
 
-  constructor() {
+  constructor(private router: Router) {
    }
 
   ngOnInit(): void {
+    this.router.navigate(['home'])
   }
 
   updateMandelbrotConfig(e) {

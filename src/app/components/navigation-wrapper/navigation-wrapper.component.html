@@ -18,13 +18,15 @@
         *ngIf="isHandset$ | async">
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
-      <span>fractals</span>
+      <span>Fractals - Mandelbrot</span>
       <span class="example-spacer"></span>
       <ng-container *ngIf="(isHandset$ | async) == false">
       <a *ngFor="let item of toolbarItems" [href]="item.href">{{item.label}}</a>
     </ng-container>
     </mat-toolbar>
     <!-- Add Content Here -->
+    <main>
     <ng-content></ng-content>
+  </main>
   </mat-sidenav-content>
 </mat-sidenav-container>

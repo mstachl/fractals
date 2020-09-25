@@ -1,8 +1,21 @@
-<div class="container">
-    <div class="fractal-box">
-      <fractal-view [config]="config"></fractal-view>
-    </div>
-    <div class="config-box">
-      <mandelbrot (update) = "updateMandelbrotConfig($event)"></mandelbrot>
-    </div>
-</div> 
+<mat-expansion-panel>
+  <mat-expansion-panel-header>
+    <mat-panel-title>
+      Mandelbrot settings
+    </mat-panel-title>
+    <mat-panel-description>
+      Edit configuration
+      
+    </mat-panel-description><mat-icon>build</mat-icon>
+  </mat-expansion-panel-header>
+
+
+
+
+<mandelbrot (update) = "updateMandelbrotConfig($event)"></mandelbrot>
+</mat-expansion-panel>
+
+
+<div style="width: 100%">
+      <fractal-view [config]="config"></fractal-view> 
+</div>

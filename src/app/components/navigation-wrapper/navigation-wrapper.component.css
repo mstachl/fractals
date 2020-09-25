@@ -26,3 +26,8 @@ mat-toolbar a {
   color: white;
   text-decoration: none;
   }
+
+  main {
+    max-width: 800px;
+    margin: 10px auto;
+  }
