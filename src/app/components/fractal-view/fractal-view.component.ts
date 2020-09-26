@@ -10,9 +10,9 @@ export class FractalViewComponent implements OnInit, AfterViewInit {
   @ViewChild('canvas', { static: true })
   canvas: ElementRef<HTMLCanvasElement>;  
 
-  maxIter = 500;
+  maxIter = 500; 
 
-  height = 500;
+  height = 500; 
 
   
   width = 500;
@@ -24,9 +24,10 @@ export class FractalViewComponent implements OnInit, AfterViewInit {
   private canvasRef: HTMLCanvasElement;
 
   private colorMap = {
-    'blue': [0,0,1],
-    'green': [0,1,0],
-    'red': [1,0,0]
+    'blue': [0,0,1, false],
+    'green': [0,1,0, false],
+    'red': [1,0,0, false],
+    'hsv1': [0,0,0, true]
   }
 
   @Input()
@@ -61,12 +62,22 @@ export class FractalViewComponent implements OnInit, AfterViewInit {
               this.ctx.fillRect(x,y, 1,1); // Draw a black pixel
           } else {
               //this.ctx.fillStyle = `rgba(100,100,100,${belongsToSet.iter/this.maxIter})`
-              this.ctx.fillStyle = `rgba(${this.colorMap[this._config.color][0]*belongsToSet.iter/this.maxIter*255},
-                ${this.colorMap[this._config.color][1]*belongsToSet.iter/this.maxIter*255},
-                ${this.colorMap[this._config.color][2]*belongsToSet.iter/this.maxIter*255})`
+              this.ctx.fillStyle = this.getColorFromEscapevalue(belongsToSet.iter);
               this.ctx.fillRect(x,y, 1,1); // Draw a black pixel
           } 
       } 
+    }
+  }
+
+  private getColorFromEscapevalue(iter) {
+    let isHSV = this.colorMap[this._config.color][3];
+    if (!isHSV) {
+      return `rgba(${this.colorMap[this._config.color][0]*iter/this.maxIter*255},
+          ${this.colorMap[this._config.color][1]*iter/this.maxIter*255},
+          ${this.colorMap[this._config.color][2]*iter/this.maxIter*255})`
+    }
+    else {
+      return `hsl(${iter/this.maxIter*250}, 100%,50%)`
     }
   }
 
