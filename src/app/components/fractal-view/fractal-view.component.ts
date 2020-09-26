@@ -24,8 +24,9 @@ export class FractalViewComponent implements OnInit, AfterViewInit {
   private canvasRef: HTMLCanvasElement;
 
   private colorMap = {
-    0: 'black',
-    10: ''
+    'blue': [0,0,1],
+    'green': [0,1,0],
+    'red': [1,0,0]
   }
 
   @Input()
@@ -60,7 +61,9 @@ export class FractalViewComponent implements OnInit, AfterViewInit {
               this.ctx.fillRect(x,y, 1,1); // Draw a black pixel
           } else {
               //this.ctx.fillStyle = `rgba(100,100,100,${belongsToSet.iter/this.maxIter})`
-              this.ctx.fillStyle = `rgba(0,0,${belongsToSet.iter/this.maxIter*255})`
+              this.ctx.fillStyle = `rgba(${this.colorMap[this._config.color][0]*belongsToSet.iter/this.maxIter*255},
+                ${this.colorMap[this._config.color][1]*belongsToSet.iter/this.maxIter*255},
+                ${this.colorMap[this._config.color][2]*belongsToSet.iter/this.maxIter*255})`
               this.ctx.fillRect(x,y, 1,1); // Draw a black pixel
           } 
       } 

@@ -26,19 +26,23 @@ export class MandelbrotComponent implements OnInit {
     this.configForm = this.fb.group({
       depth: 1,
       posX: 0,
-      posY: 0
+      posY: 0,
+      color: 'blue'
     })
     this.sights.getMandelbrotSights().subscribe(val => this.options = val);
   }
 
-  onSubmit() {
+  onSubmit() { 
+    console.log(this.configForm.value);
 
     this.update.emit(this.configForm.value);
   }
 
   do(e) {
-    console.log(e);
-    this.configForm.setValue({depth: e.depth, posX: e.posX, posY: e.posY});
+    this.configForm.controls['depth'].setValue(e.depth);
+    this.configForm.controls['posX'].setValue(e.posX);
+    this.configForm.controls['posY'].setValue(e.posY);
   }
+
 
 }

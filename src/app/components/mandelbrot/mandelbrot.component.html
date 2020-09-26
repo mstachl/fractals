@@ -1,6 +1,6 @@
 <form [formGroup]= "configForm" (ngSubmit)="onSubmit()">
     <p><mat-form-field appearance="fill">
-        <mat-label>Select</mat-label>
+        <mat-label>Select area</mat-label>
         <mat-select (valueChange)="do($event)">
             <mat-option *ngFor="let sight of options" [value]="sight">{{sight.title}}</mat-option>
         </mat-select>
@@ -14,6 +14,18 @@
     <mat-form-field appearance="fill">
         <mat-label for="posY">posY</mat-label> <input matInput type="number" formControlName="posY">
     </mat-form-field>
-    
+    <p>
+    <mat-button-toggle-group #group="matButtonToggleGroup" formControlName="color" >
+        <mat-button-toggle value="blue" aria-label="Text align left">
+            <i class="material-icons blue600">stop_circle</i>
+        </mat-button-toggle>
+        <mat-button-toggle value="red" aria-label="Text align center">
+            <i class="material-icons red600">stop_circle</i>
+        </mat-button-toggle>
+        <mat-button-toggle value="green" aria-label="Text align right">
+            <i class="material-icons green600">stop_circle</i>
+        </mat-button-toggle>
+      </mat-button-toggle-group>
+    </p>
     <p><button mat-raised-button color="primary" type="submit" [disabled]="!configForm.valid">Draw</button></p>
 </form>

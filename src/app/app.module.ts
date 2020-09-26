@@ -18,6 +18,8 @@ import { LayoutModule } from '@angular/cdk/layout';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import {MatExpansionModule} from '@angular/material/expansion';
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
+
 
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
@@ -50,6 +52,7 @@ import { AboutUsComponent } from './components/about-us/about-us.component'
     MatIconModule,
     MatListModule,
     MatExpansionModule, 
+    MatButtonToggleModule,
     RouterModule.forRoot([
       {path: 'home', component: FractalControllerComponent},
       {path: 'about-us', component: AboutUsComponent}, 
