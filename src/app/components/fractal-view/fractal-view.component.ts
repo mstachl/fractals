@@ -23,12 +23,6 @@ export class FractalViewComponent implements OnInit, AfterViewInit {
 
   private canvasRef: HTMLCanvasElement;
 
-  private colorMap = {
-    'blue': [0,0,1, false],
-    'green': [0,1,0, false],
-    'red': [1,0,0, false],
-    'hsv1': [0,0,0, true]
-  }
 
   @Input()
   set config(val: any) {
@@ -70,15 +64,28 @@ export class FractalViewComponent implements OnInit, AfterViewInit {
   }
 
   private getColorFromEscapevalue(iter) {
-    let isHSV = this.colorMap[this._config.color][3];
-    if (!isHSV) {
-      return `rgba(${this.colorMap[this._config.color][0]*iter/this.maxIter*255},
-          ${this.colorMap[this._config.color][1]*iter/this.maxIter*255},
-          ${this.colorMap[this._config.color][2]*iter/this.maxIter*255})`
+    let colorMode = this._config.color;
+    switch(colorMode) {
+      case 'blue': {
+        return `rgba(0,0,${iter/this.maxIter*255})`
+      }
+      case 'red': {
+        return `rgba(${iter/this.maxIter*255},
+          0,0)`
+      }
+      case 'green': {
+        return `rgba(0,
+          ${iter/this.maxIter*255},
+          0)`
+      }
+      case 'hsv1':{
+        return `hsl(${iter/this.maxIter*250}, 100%,50%)`
+      }
+      case 'grey': {
+        return `rgba(0,0,0,${1.0-iter/this.maxIter}`
+      }
     }
-    else {
-      return `hsl(${iter/this.maxIter*250}, 100%,50%)`
-    }
+     
   }
 
   private checkIfBelongsToMandelbrotSet(x, y) {
@@ -99,7 +106,7 @@ for(var i = 0; i < this.maxIter; i++) {
      realComponentOfResult = tempRealComponent;
      imaginaryComponentOfResult = tempImaginaryComponent;
 
-     if (realComponentOfResult * imaginaryComponentOfResult > 10 )
+     if (realComponentOfResult * imaginaryComponentOfResult > 5 )
         return { inSet: false, iter: i} ; // Not in the Mandelbrot set
 }
 
