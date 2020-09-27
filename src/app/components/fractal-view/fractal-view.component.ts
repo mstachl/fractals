@@ -31,6 +31,10 @@ export class FractalViewComponent implements OnInit, AfterViewInit {
     this.animate()
   }
 
+  get config() {
+    return this._config;
+  }
+
   @Output()
   configChange = new EventEmitter()
 
@@ -184,7 +188,7 @@ goBackward() {
 
 zoomIn() {
   let newConfig = {
-    depth: this._config.depth*1.25,
+    depth: Math.max(1,Math.round(this._config.depth*125)/100),
     posX: this._config.posX,
     posY: this._config.posY,
     color: this._config.color
@@ -194,7 +198,7 @@ zoomIn() {
 
 zoomOut() {
   let newConfig = {
-    depth: this._config.depth*0.8,
+    depth: Math.max(1,Math.round(this._config.depth*80)/100),
     posX: this._config.posX,
     posY: this._config.posY,
     color: this._config.color

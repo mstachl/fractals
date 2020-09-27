@@ -12,7 +12,7 @@ export class FractalControllerComponent implements OnInit {
 
   constructor(private router: Router) {
     this.config= {
-      depth: 2,
+      depth: 1,
       posX: 0,
       posY: 0,
       color: 'blue'

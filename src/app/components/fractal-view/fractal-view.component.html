@@ -14,7 +14,7 @@
 <button mat-raised-button color="primary" (click)="zoomIn()">
     <mat-icon>add</mat-icon>
 </button>
-<button mat-raised-button color="primary" (click)="zoomOut()">
+<button mat-raised-button color="primary" [disabled]="!(config.depth > 1)" (click)="zoomOut()">
     <mat-icon>remove</mat-icon>
 </button>
 </div>  
