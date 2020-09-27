@@ -1,4 +1,4 @@
-import { Component, ViewChild, ElementRef, OnInit, Input, AfterViewInit } from '@angular/core';
+import { Component, ViewChild, ElementRef, OnInit, Input, AfterViewInit, Output, EventEmitter } from '@angular/core';
 import { CONTEXT_NAME } from '@angular/compiler/src/render3/view/util';
 
 @Component({
@@ -27,8 +27,12 @@ export class FractalViewComponent implements OnInit, AfterViewInit {
   @Input()
   set config(val: any) {
     this._config = val;
+    this.configChange.emit(this._config);
     this.animate()
   }
+
+  @Output()
+  configChange = new EventEmitter()
 
   ngOnInit(): void {
     this.canvasRef = this.canvas.nativeElement;
@@ -145,6 +149,7 @@ goForward() {
     color: this._config.color
   }
   this.config = newConfig;
+
 } 
 
 goDown() {
@@ -179,7 +184,7 @@ goBackward() {
 
 zoomIn() {
   let newConfig = {
-    depth: this._config.depth*1.2,
+    depth: this._config.depth*1.25,
     posX: this._config.posX,
     posY: this._config.posY,
     color: this._config.color
