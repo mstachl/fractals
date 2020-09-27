@@ -91,24 +91,24 @@ export class FractalViewComponent implements OnInit, AfterViewInit {
   private checkIfBelongsToMandelbrotSet(x, y) {
     // check if f(z) = z^2+c bounded, z0=0, z1=c
     var realComponentOfResult = x;
-var imaginaryComponentOfResult = y;
+    var imaginaryComponentOfResult = y;
 
-for(var i = 0; i < this.maxIter; i++) {
-     // Calculate the real and imaginary components of the result
-     // separately
-     var tempRealComponent = realComponentOfResult * realComponentOfResult
-                             - imaginaryComponentOfResult * imaginaryComponentOfResult
-                             + x;
+    for(var i = 0; i < this.maxIter; i++) {
+      // Calculate the real and imaginary components of the result
+      // separately
+      var tempRealComponent = realComponentOfResult * realComponentOfResult
+                              - imaginaryComponentOfResult * imaginaryComponentOfResult
+                              + x;
 
-     var tempImaginaryComponent = 2 * realComponentOfResult * imaginaryComponentOfResult
-                             + y;
+      var tempImaginaryComponent = 2 * realComponentOfResult * imaginaryComponentOfResult
+                              + y;
 
-     realComponentOfResult = tempRealComponent;
-     imaginaryComponentOfResult = tempImaginaryComponent;
+      realComponentOfResult = tempRealComponent;
+      imaginaryComponentOfResult = tempImaginaryComponent;
 
-     if (realComponentOfResult * imaginaryComponentOfResult > 5 )
-        return { inSet: false, iter: i} ; // Not in the Mandelbrot set
-}
+      if (realComponentOfResult * imaginaryComponentOfResult > 5 )
+          return { inSet: false, iter: i} ; // Not in the Mandelbrot set
+  }
 
 
 
@@ -118,10 +118,23 @@ return { inSet: true}; // Not in the set
 
 private computeAndSetCanvasHeight() {
   this.canvasRef.height = this.canvasRef.width;
-  console.log(this.canvas.nativeElement.height)
+  console.log(this.canvas.nativeElement.height);
   this.height=this.canvasRef.offsetHeight;
-  this.width = this.canvasRef.offsetWidth;
+  this.width = this.canvasRef.offsetWidth; 
 }
 
+
+saveImage() {
+  var image = this.canvasRef.toDataURL();   
+  this.download(image, `mandelbrot_${this._config.depth}_${this._config.posX}_${this._config.posY}.png`)
+}
+
+private download(dataurl, filename) {
+  var a = document.createElement("a");
+  a.href = dataurl;
+  a.setAttribute("download", filename);
+  a.click();
+  a.remove();
+}
 
 }
