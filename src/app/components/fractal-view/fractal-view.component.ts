@@ -137,4 +137,64 @@ private download(dataurl, filename) {
   a.remove();
 }
 
+goForward() {
+  let newConfig = {
+    depth: this._config.depth,
+    posX: this._config.posX + 1/this._config.depth,
+    posY: this._config.posY,
+    color: this._config.color
+  }
+  this.config = newConfig;
+} 
+
+goDown() {
+  let newConfig = {
+    depth: this._config.depth,
+    posY: this._config.posY - 1/this._config.depth,
+    posX: this._config.posX,
+    color: this._config.color
+  }
+  this.config = newConfig;
+}
+
+goUp() {
+  let newConfig = {
+    depth: this._config.depth,
+    posY: this._config.posY + 1/this._config.depth,
+    posX: this._config.posX,
+    color: this._config.color
+  }
+  this.config = newConfig;
+}
+
+goBackward() {
+  let newConfig = {
+    depth: this._config.depth,
+    posX: this._config.posX - 1/this._config.depth,
+    posY: this._config.posY,
+    color: this._config.color
+  }
+  this.config = newConfig;
+}
+
+zoomIn() {
+  let newConfig = {
+    depth: this._config.depth*1.2,
+    posX: this._config.posX,
+    posY: this._config.posY,
+    color: this._config.color
+  }
+  this.config = newConfig;
+}
+
+zoomOut() {
+  let newConfig = {
+    depth: this._config.depth*0.8,
+    posX: this._config.posX,
+    posY: this._config.posY,
+    color: this._config.color
+  }
+  this.config = newConfig;
+}
+
 }
