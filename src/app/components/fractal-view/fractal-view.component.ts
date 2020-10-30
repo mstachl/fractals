@@ -1,4 +1,4 @@
-import { Component, ViewChild, ElementRef, OnInit, Input, AfterViewInit } from '@angular/core';
+import { Component, ViewChild, ElementRef, OnInit, Input, AfterViewInit, Output, EventEmitter } from '@angular/core';
 import { CONTEXT_NAME } from '@angular/compiler/src/render3/view/util';
 
 @Component({
@@ -27,8 +27,16 @@ export class FractalViewComponent implements OnInit, AfterViewInit {
   @Input()
   set config(val: any) {
     this._config = val;
+    this.configChange.emit(this._config);
     this.animate()
   }
+
+  get config() {
+    return this._config;
+  }
+
+  @Output()
+  configChange = new EventEmitter()
 
   ngOnInit(): void {
     this.canvasRef = this.canvas.nativeElement;
@@ -135,6 +143,67 @@ private download(dataurl, filename) {
   a.setAttribute("download", filename);
   a.click();
   a.remove();
+}
+
+goForward() {
+  let newConfig = {
+    depth: this._config.depth,
+    posX: this._config.posX + 1/this._config.depth,
+    posY: this._config.posY,
+    color: this._config.color
+  }
+  this.config = newConfig;
+
+} 
+
+goDown() {
+  let newConfig = {
+    depth: this._config.depth,
+    posY: this._config.posY - 1/this._config.depth,
+    posX: this._config.posX,
+    color: this._config.color
+  }
+  this.config = newConfig;
+}
+
+goUp() {
+  let newConfig = {
+    depth: this._config.depth,
+    posY: this._config.posY + 1/this._config.depth,
+    posX: this._config.posX,
+    color: this._config.color
+  }
+  this.config = newConfig;
+}
+
+goBackward() {
+  let newConfig = {
+    depth: this._config.depth,
+    posX: this._config.posX - 1/this._config.depth,
+    posY: this._config.posY,
+    color: this._config.color
+  }
+  this.config = newConfig;
+}
+
+zoomIn() {
+  let newConfig = {
+    depth: Math.max(1,Math.round(this._config.depth*125)/100),
+    posX: this._config.posX,
+    posY: this._config.posY,
+    color: this._config.color
+  }
+  this.config = newConfig;
+}
+
+zoomOut() {
+  let newConfig = {
+    depth: Math.max(1,Math.round(this._config.depth*80)/100),
+    posX: this._config.posX,
+    posY: this._config.posY,
+    color: this._config.color
+  }
+  this.config = newConfig;
 }
 
 }

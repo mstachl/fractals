@@ -1,5 +1,22 @@
+
+<div style="text-align: center; padding-top: 20px" class="button-row center">
+<button mat-raised-button color="primary" (click)="saveImage()">Save image</button>
+<button mat-raised-button color="primary" (click)="goBackward()">
+    <mat-icon>arrow_backward</mat-icon> 
+</button>
+<button mat-raised-button color="primary" (click)="goUp()">
+    <mat-icon>arrow_upward</mat-icon> 
+</button><button mat-raised-button color="primary" (click)="goDown()">
+    <mat-icon>arrow_downward</mat-icon>
+</button><button mat-raised-button color="primary" (click)="goForward()">
+    <mat-icon>arrow_forward</mat-icon>
+</button>
+<button mat-raised-button color="primary" (click)="zoomIn()">
+    <mat-icon>add</mat-icon>
+</button>
+<button mat-raised-button color="primary" [disabled]="!(config.depth > 1)" (click)="zoomOut()">
+    <mat-icon>remove</mat-icon>
+</button>
+</div>  
 <canvas #canvas style="margin: 20px auto;
 display: block;" [width]="width" [height]="height"></canvas>
-<div class="button-row">
-<button mat-raised-button color="primary" (click)="saveImage()">Save image</button>
-</div>  
