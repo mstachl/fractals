@@ -10,7 +10,7 @@ import { map, shareReplay } from 'rxjs/operators';
 })
 export class NavigationWrapperComponent {
 
-  toolbarItems = [{href: "/home", label: "Home"}, {href: "/examples", label: "Examples"}, {href:"/about-us", label: "About"}]
+  toolbarItems = [{href: "/home", label: "Home"}, {href: "/examples", label: "Examples"}, {href:"/contact", label: "Contact"}, {href:"/about-us", label: "About"}]
   
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(

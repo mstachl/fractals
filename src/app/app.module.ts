@@ -21,6 +21,7 @@ import {MatExpansionModule} from '@angular/material/expansion';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatCardModule} from '@angular/material/card';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 
 
@@ -28,7 +29,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { NavigationWrapperComponent } from './components/navigation-wrapper/navigation-wrapper.component';
 import { AboutUsComponent } from './components/about-us/about-us.component';
-import { FractalExamplesComponent } from './components/fractal-examples/fractal-examples.component'
+import { FractalExamplesComponent } from './components/fractal-examples/fractal-examples.component';
+import { ContactComponent } from './components/contact/contact.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +40,8 @@ import { FractalExamplesComponent } from './components/fractal-examples/fractal-
     FractalControllerComponent,
     NavigationWrapperComponent,
     AboutUsComponent,
-    FractalExamplesComponent
+    FractalExamplesComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule,
@@ -60,10 +63,12 @@ import { FractalExamplesComponent } from './components/fractal-examples/fractal-
     MatExpansionModule, 
     MatButtonToggleModule,
     MatCardModule,
+    MatSnackBarModule,
     RouterModule.forRoot([
       {path: 'home', component: FractalControllerComponent},
       {path: 'about-us', component: AboutUsComponent}, 
       {path: 'examples', component: FractalExamplesComponent}, 
+      {path: 'contact', component: ContactComponent}, 
       {path: '', redirectTo: '/home', pathMatch: 'full'},
     ])
   ],
