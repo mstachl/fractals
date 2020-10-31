@@ -1,0 +1,10 @@
+.content > mat-card {
+    width: 200px;
+    margin: 5px;
+}
+
+.content {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+}

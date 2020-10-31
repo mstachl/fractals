@@ -20,13 +20,15 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import {MatMenuModule} from '@angular/material/menu';
+import {MatCardModule} from '@angular/material/card';
 
 
 
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { NavigationWrapperComponent } from './components/navigation-wrapper/navigation-wrapper.component';
-import { AboutUsComponent } from './components/about-us/about-us.component'
+import { AboutUsComponent } from './components/about-us/about-us.component';
+import { FractalExamplesComponent } from './components/fractal-examples/fractal-examples.component'
 
 @NgModule({
   declarations: [
@@ -35,7 +37,8 @@ import { AboutUsComponent } from './components/about-us/about-us.component'
     MandelbrotComponent,
     FractalControllerComponent,
     NavigationWrapperComponent,
-    AboutUsComponent
+    AboutUsComponent,
+    FractalExamplesComponent
   ],
   imports: [
     BrowserModule,
@@ -56,9 +59,11 @@ import { AboutUsComponent } from './components/about-us/about-us.component'
     MatMenuModule,
     MatExpansionModule, 
     MatButtonToggleModule,
+    MatCardModule,
     RouterModule.forRoot([
       {path: 'home', component: FractalControllerComponent},
       {path: 'about-us', component: AboutUsComponent}, 
+      {path: 'examples', component: FractalExamplesComponent}, 
       {path: '', redirectTo: '/home', pathMatch: 'full'},
     ])
   ],
