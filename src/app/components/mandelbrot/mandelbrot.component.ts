@@ -1,5 +1,5 @@
-import { Component, OnInit, EventEmitter, Output } from '@angular/core';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { Component, OnInit, EventEmitter, Output, Input } from '@angular/core';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { SightsService} from '../../services/sights.service'
 import { Sight } from '../../models/sight.model'
 
@@ -19,16 +19,21 @@ export class MandelbrotComponent implements OnInit {
   @Output() 
   update = new EventEmitter<any>();
 
+  @Input()
+  set config(val) {
+    console.log(val);
+    this.configForm = this.fb.group({
+      depth: [val.depth, [Validators.min(1)]],
+      posX: val.posX,
+      posY: val.posY,
+      color: val.color
+    })
+  }
+
   
   constructor(private fb: FormBuilder, private sights: SightsService) {}
 
   ngOnInit(): void {
-    this.configForm = this.fb.group({
-      depth: 1,
-      posX: 0,
-      posY: 0,
-      color: 'blue'
-    })
     this.sights.getMandelbrotSights().subscribe(val => this.options = val);
   }
 
