@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { MailService } from '../../services/mail.service'
 
 @Component({
   selector: 'app-contact',
@@ -11,7 +12,7 @@ export class ContactComponent implements OnInit {
 
   contactForm: FormGroup;
 
-  constructor(private fb: FormBuilder, private _snackBar: MatSnackBar) {
+  constructor(private fb: FormBuilder, private _snackBar: MatSnackBar, private mailService: MailService) {
       
    }
 
@@ -24,7 +25,10 @@ export class ContactComponent implements OnInit {
   }
 
   onSubmit() {
-    this.openSnackBar("Thank you for your message", "X")
+    this.mailService.sendMail(this.contactForm.value).subscribe(data => {
+      this.openSnackBar('Message has been sent', "X")
+    });
+    
   }
 
   openSnackBar(message: string, action: string) {

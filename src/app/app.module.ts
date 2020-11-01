@@ -31,6 +31,8 @@ import { NavigationWrapperComponent } from './components/navigation-wrapper/navi
 import { AboutUsComponent } from './components/about-us/about-us.component';
 import { FractalExamplesComponent } from './components/fractal-examples/fractal-examples.component';
 import { ContactComponent } from './components/contact/contact.component';
+import { MailService } from './services/mail.service';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -64,6 +66,7 @@ import { ContactComponent } from './components/contact/contact.component';
     MatButtonToggleModule,
     MatCardModule,
     MatSnackBarModule,
+    HttpClientModule,
     RouterModule.forRoot([
       {path: 'home', component: FractalControllerComponent},
       {path: 'about-us', component: AboutUsComponent}, 
@@ -72,7 +75,7 @@ import { ContactComponent } from './components/contact/contact.component';
       {path: '', redirectTo: '/home', pathMatch: 'full'},
     ])
   ],
-  providers: [],
+  providers: [MailService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
