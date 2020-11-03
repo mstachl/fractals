@@ -19,8 +19,8 @@ export class ContactComponent implements OnInit {
   ngOnInit(): void {
     this.contactForm = this.fb.group({
       mail: ["", [Validators.email, Validators.required]],
-      summary: ["", [Validators.required]],
-      message: ["", [Validators.required]],
+      summary: ["", [Validators.required, Validators.maxLength(50)]],
+      message: ["", [Validators.required, Validators.maxLength(3000)]],
     })
   }
 
