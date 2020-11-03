@@ -33,6 +33,7 @@ import { FractalExamplesComponent } from './components/fractal-examples/fractal-
 import { ContactComponent } from './components/contact/contact.component';
 import { MailService } from './services/mail.service';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
     NavigationWrapperComponent,
     AboutUsComponent,
     FractalExamplesComponent,
-    ContactComponent
+    ContactComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
