@@ -6,7 +6,7 @@ import { Sight } from '../../models/sight.model'
 @Component({
   selector: 'mandelbrot',
   templateUrl: './mandelbrot.component.html',
-  styleUrls: ['./mandelbrot.component.css']
+  styleUrls: ['./mandelbrot.component.scss']
 })
 export class MandelbrotComponent implements OnInit {
 

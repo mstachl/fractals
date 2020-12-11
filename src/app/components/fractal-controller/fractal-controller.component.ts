@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'fractal-controller',
   templateUrl: './fractal-controller.component.html',
-  styleUrls: ['./fractal-controller.component.css']
+  styleUrls: ['./fractal-controller.component.scss']
 })
 export class FractalControllerComponent implements OnInit {
 
