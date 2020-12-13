@@ -34,6 +34,7 @@ import { ContactComponent } from './components/contact/contact.component';
 import { MailService } from './services/mail.service';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { FooterComponent } from './components/footer/footer.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -71,13 +72,15 @@ import { FooterComponent } from './components/footer/footer.component';
     HttpClientModule,
     RouterModule.forRoot([
       {path: 'home', component: FractalControllerComponent},
-      {path: 'about-us', component: AboutUsComponent}, 
+      {path: 'about', component: AboutUsComponent}, 
       {path: 'examples', component: FractalExamplesComponent}, 
+      {path: 'projects', component: FractalControllerComponent},
       {path: 'contact', component: ContactComponent}, 
       {path: '', redirectTo: '/home', pathMatch: 'full'},
-    ])
+    ]),
+    FontAwesomeModule
   ],
   providers: [MailService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent] 
 })
 export class AppModule { }
