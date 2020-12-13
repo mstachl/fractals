@@ -23,6 +23,7 @@
       <ng-container *ngIf="(isHandset$ | async) == false">
         <a *ngFor="let item of toolbarItems" [href]="item.href">{{item.label}}</a>
       </ng-container>
+      <!--
       <button style="font-size: 20px" mat-icon-button disabled [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
         EN
         <mat-icon>arrow_drop_down</mat-icon> 
@@ -34,7 +35,7 @@
         <button mat-menu-item>
           DE
         </button>
-      </mat-menu>
+      </mat-menu>-->
     </mat-toolbar>
     <!-- Add Content Here -->
     <main>
