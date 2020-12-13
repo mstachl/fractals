@@ -1,0 +1,23 @@
+.banner-area {
+    height: 600px;
+}
+
+.banner-card {
+    height: auto;
+}
+
+.container {
+    justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.banner-left {
+    margin-left: 50px;
+align-self: center;}
+
+.banner-right>img {
+    height: auto;
+    margin: 50px;
+}

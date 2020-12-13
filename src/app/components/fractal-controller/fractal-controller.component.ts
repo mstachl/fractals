@@ -20,7 +20,7 @@ export class FractalControllerComponent implements OnInit {
    }
 
   ngOnInit(): void {
-    this.router.navigate(['home'])
+    this.router.navigate(['projects'])
   }
 
   updateMandelbrotConfig(e) {

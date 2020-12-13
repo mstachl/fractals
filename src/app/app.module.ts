@@ -35,6 +35,7 @@ import { MailService } from './services/mail.service';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { FooterComponent } from './components/footer/footer.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { SummaryComponent } from './components/summary/summary.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     AboutUsComponent,
     FractalExamplesComponent,
     ContactComponent,
-    FooterComponent
+    FooterComponent,
+    SummaryComponent
   ],
   imports: [
     BrowserModule,
@@ -71,7 +73,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     MatSnackBarModule,
     HttpClientModule,
     RouterModule.forRoot([
-      {path: 'home', component: FractalControllerComponent},
+      {path: 'home', component: SummaryComponent}, 
       {path: 'about', component: AboutUsComponent}, 
       {path: 'examples', component: FractalExamplesComponent}, 
       {path: 'projects', component: FractalControllerComponent},
