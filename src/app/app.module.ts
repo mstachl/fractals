@@ -36,6 +36,8 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { FooterComponent } from './components/footer/footer.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { SummaryComponent } from './components/summary/summary.component';
+import { ProjectsComponent } from './components/projects/projects.component';
+import { BilderrahmenComponent } from './components/bilderrahmen/bilderrahmen.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +50,9 @@ import { SummaryComponent } from './components/summary/summary.component';
     FractalExamplesComponent,
     ContactComponent,
     FooterComponent,
-    SummaryComponent
+    SummaryComponent,
+    ProjectsComponent,
+    BilderrahmenComponent
   ],
   imports: [
     BrowserModule,
@@ -76,8 +80,10 @@ import { SummaryComponent } from './components/summary/summary.component';
       {path: 'home', component: SummaryComponent}, 
       {path: 'about', component: AboutUsComponent}, 
       {path: 'examples', component: FractalExamplesComponent}, 
-      {path: 'projects', component: FractalControllerComponent},
+      {path: 'projects', component: ProjectsComponent},
       {path: 'contact', component: ContactComponent}, 
+      {path: 'mandelbrot', component: FractalControllerComponent},
+      {path: 'raspi', component: BilderrahmenComponent},
       {path: '', redirectTo: '/home', pathMatch: 'full'},
     ]),
     FontAwesomeModule
