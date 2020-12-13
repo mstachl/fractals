@@ -1,0 +1,22 @@
+{
+    "routes": [
+      {
+        "route": "/home"
+      },
+      {
+        "route": "/projects"
+      },
+      {
+        "route": "/raspi"
+      },
+      {
+        "route": "/mandelbrot"
+      },
+      {
+        "route": "/about"
+      },
+      {
+        "route": "/contact"
+      }
+    ]
+}

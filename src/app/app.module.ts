@@ -84,7 +84,7 @@ import { BilderrahmenComponent } from './components/bilderrahmen/bilderrahmen.co
       {path: 'contact', component: ContactComponent}, 
       {path: 'mandelbrot', component: FractalControllerComponent},
       {path: 'raspi', component: BilderrahmenComponent},
-      {path: '', redirectTo: '/home', pathMatch: 'full'},
+      {path: '', redirectTo: 'home', pathMatch: 'full'},
     ]),
     FontAwesomeModule
   ],
