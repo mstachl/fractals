@@ -1,5 +1,5 @@
-<section class="banner-area">
-    <mat-card class="banner-card">
+<section >
+    <mat-card>
 <div class="container">
     <div class="banner-left">
         <h1>Markus Stachl</h1>
@@ -10,4 +10,22 @@
         <img src="assets/img/profile.png" alt="Profilbild">
     </div>
 </div></mat-card>
+</section>
+<section >
+    <mat-card>
+        <div class="container">
+            <h1 style="margin: 0 auto; padding-bottom: 50px;">Letzte Projekte</h1>
+            <div class="projectsContainer">
+                <div *ngFor="let project of projectList" class="item">
+                    <img style="margin: 0 auto" [src]="project.img" [alt]="project.altText">
+                
+                    <div>
+                        <a [href]="project.href"><h2 style="height: 50px">{{project.title}}</h2></a>
+                        <p style="height: 70px">{{project.desc}}</p>
+                        <p>{{project.author}} am {{project.date}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </mat-card>
 </section>

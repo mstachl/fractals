@@ -21,3 +21,18 @@ align-self: center;}
     height: auto;
     margin: 50px;
 }
+
+.projectsContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    text-align: center;
+}
+
+.projectsContainer .item {
+    flex: 1 1 300px;
+}
+
+.item img {
+    height: 120px;
+}

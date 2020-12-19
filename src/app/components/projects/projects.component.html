@@ -1,24 +1,13 @@
-<mat-card>
+
+<mat-card *ngFor="let project of projectList">
     <div class="card-container">
         <div class="card-left">
-            <img src="assets/img/Mandel_zoom_00_mandelbrot_set.jpg" alt="Mandelbrot generator">
+            <img [src]="project.img" [alt]="project.altText">
         </div>
         <div class="card-right">
-    <a href="/mandelbrot"><h2>Generating fractal images from the mandelbrot set</h2></a>
-    <p>A small Javascript web application to generate images from the famous mandelbrot set including zooming, coloring.</p>
-    <p>Markus Stachl am 10.12.2020</p>
-</div>
-</div>
-</mat-card>
-<mat-card>
-    <div class="card-container">
-        <div class="card-left">
-            <img src="assets/img/raspi.png" alt="Raspberry Pi">
+            <a [href]="project.href"><h2>{{project.title}}</h2></a>
+            <p>{{project.desc}}</p>
+            <p>{{project.author}} am {{project.date}}</p>
         </div>
-        <div class="card-right">
-    <a href="/raspi"><h2>Raspberry Pi: Digitaler Bilderrahmen</h2></a>
-    <p>Einsteigerprojekt für den Raspberry Pi 3B+.</p>
-    <p>Markus Stachl am 10.10.2020</p>
-</div>
-</div>
+    </div>
 </mat-card>

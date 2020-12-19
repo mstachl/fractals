@@ -32,6 +32,7 @@ import { AboutUsComponent } from './components/about-us/about-us.component';
 import { FractalExamplesComponent } from './components/fractal-examples/fractal-examples.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { MailService } from './services/mail.service';
+import { ProjectsService} from './services/projects.service';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { FooterComponent } from './components/footer/footer.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
@@ -88,7 +89,7 @@ import { BilderrahmenComponent } from './components/bilderrahmen/bilderrahmen.co
     ]),
     FontAwesomeModule
   ],
-  providers: [MailService],
+  providers: [MailService, ProjectsService],
   bootstrap: [AppComponent] 
 })
 export class AppModule { }
