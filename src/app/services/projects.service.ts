@@ -21,15 +21,7 @@ export class ProjectsService {
     author: 'Markus Stachl', 
     date: '01.10.2020', 
     desc: 'Einsteigerprojekt für den Raspberry Pi 3B+. \n Erstellung eines digitalen Bilderrahmens unter Verwendung des Multimediacenters KODI.'
-  } , {
-  href: '/raspi', 
-  title: 'Raspberry Pi: Digitaler Bilderrahmen', 
-  altText: 'Raspberry Pi', 
-  img: 'assets/img/raspi.png', 
-  author: 'Markus Stachl', 
-  date: '01.10.2020', 
-  desc: 'Einsteigerprojekt für den Raspberry Pi 3B+. \n Erstellung eines digitalen Bilderrahmens unter Verwendung des Multimediacenters KODI.'
-}
+  }
   ];
   
   getProjects() {
