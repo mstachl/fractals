@@ -1,18 +1,18 @@
-<p>In case you have technical questions regarding fractals or need information on the website, feel free to leave us a message.</p>
-<h1>Contact us</h1>
+<p>Bei Fragen zu Inhalten können Sie mir hier gerne eine Nachricht hinterlassen. Bei Jobanfragen bitte ich um Kontaktaufnahme via Xing oder LinkedIn.</p>
+<h1>Kontakt</h1>
 <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
     <mat-form-field class="full-width-field" appearance="fill" > 
-      <mat-label>Your E-mail</mat-label>
+      <mat-label>E-mail</mat-label>
       <input matInput formControlName="mail">
     </mat-form-field >
     <mat-form-field class="full-width-field" appearance="fill" >
-        <mat-label>Summary</mat-label>
+        <mat-label>Zusammenfassung</mat-label>
         <input matInput maxlength="50" formControlName="summary">
       </mat-form-field>
     <mat-form-field class="full-width-field" appearance="fill">
-      <mat-label>Leave a comment</mat-label>
+      <mat-label>Kommentar...</mat-label>
       <textarea matInput placeholder="Your message" rows="5" maxlength="3000" formControlName="message"></textarea>
      <div style="text-align: right; color: grey">({{contactForm.get('message').value.length}}/3000)</div> 
     </mat-form-field>
-    <p><button mat-raised-button color="primary" type="submit" [disabled]="!contactForm.valid">Submit</button></p>
+    <p><button mat-raised-button color="primary" type="submit" [disabled]="!contactForm.valid">Absenden</button></p>
   </form>
